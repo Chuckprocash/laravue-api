@@ -1,0 +1,10 @@
+# railway.toml
+
+[build]
+command = "composer install --no-dev --optimize-autoloader && php artisan config:cache && composer --version"
+
+[start]
+command = "php artisan serve --host=0.0.0.0 --port=8080"
+
+[deploy]
+postDeployCommand = "php artisan migrate --force && php artisan storage:link"
